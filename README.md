@@ -1,15 +1,12 @@
 USGS-SESAR-Template
 ===================
 
-## SESAR-USGS 
-## USGS-SESAR Template
-
-
 ```{r}
 library(lubridate)
 ```
 
 #### Read csv File
+==================
 ```{r}
 SESAR.Template.CSV <-read.csv("~/PaleoDatabase/R work/SESAR Template -CSV.csv", sep=",",header=TRUE, na.strings = "")
 ```
@@ -19,6 +16,7 @@ Cobban.Template.CSV<-read.csv("~/PaleoDatabase/R work/Cobban_USGS-CSV.csv", sep=
 ```
 
 ### Spreadsheet Formatting
+===========================
 #### Removing 1st row from SESAR Template
 ```{r}
 SESAR.Template.CSV <- SESAR.Template.CSV[-c(1),]
