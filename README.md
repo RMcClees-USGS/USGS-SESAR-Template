@@ -1,11 +1,11 @@
-USGS-SESAR-Template
+#USGS-SESAR-Template
 ===================
 
 ```{r}
 library(lubridate)
 ```
 
-#### Read csv File
+# Read csv File
 ==================
 ```{r}
 SESAR.Template.CSV <-read.csv("~/PaleoDatabase/R work/SESAR Template -CSV.csv", sep=",",header=TRUE, na.strings = "")
