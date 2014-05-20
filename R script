@@ -1,47 +1,34 @@
 ##USGS-SESAR-Template
 
-
-
-
-
-```{r}
 library(lubridate)
-```
+
 
 ### Read csv File
-
-```{r}
 SESAR.Template.CSV <-read.csv("~/PaleoDatabase/R work/SESAR Template -CSV.csv", sep=",",header=TRUE, na.strings = "")
-```
 
-```{r}
 Cobban.Template.CSV<-read.csv("~/PaleoDatabase/R work/Cobban_USGS-CSV.csv", sep=",",header=TRUE)
-```
+
 
 ### Spreadsheet Formatting
 ===========================
 #### Removing 1st row from SESAR Template
-```{r}
 SESAR.Template.CSV <- SESAR.Template.CSV[-c(1),]
-```
 
 #### Merging Spreadsheets
-```{r}
 SESAR.V1 <- merge(SESAR.Template.CSV, Cobban.Template.CSV, by.x=c("Field.name..informal.classification.","Age..max.","Geological.age","Geological.unit","Comment","Latitude","Longitude","Locality","Locality.description","Country","State.Province","County","Collector.Chief.Scientist","Collection.date"), by.y=c("Resume_of_Fauna","Stage","Age","Formation","Comments","Lat_Pub","Long_Pub","USGS7.5","LocDescr","Country","State","County","Collector","Date"), all=TRUE)
-```
+
 
 #### Removing Unwanted Columns
-```{r}
 SESAR.V1[56:65] <- list(NULL)
-```
+
 
 #### Apply data to Individual Columns
-```{r}
+
 SESAR.V1$Material <- "Biology"
 SESAR.V1$Age.unit..e.g..million.years..Ma.. <- "Ma"
 SESAR.V1$Current.archive.contact <- "Kevin McKinney - kcmckinney@usgs.gov"
 SESAR.V1$Current.archive <- "United States Geological Survey - Denver Lab"
-```
+
 
 #### Reordering of columns to match SESAR Template 
 ```{r}
