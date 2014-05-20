@@ -1,5 +1,4 @@
-README
-======
+R script for merging USGS sample/fossil data with the System for Earth Sample Registration (SESAR) schema.
 
 
 
