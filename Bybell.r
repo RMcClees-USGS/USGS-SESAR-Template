@@ -13,7 +13,7 @@ SESAR.Template.CSV <-read.csv("~/PaleoDatabase/R work/SESAR Template -CSV.csv", 
 ```
 
 ```{r}
-Bybell.Template.CSV<-read.csv("~/PaleoDatabase/R work/Bybell_USGS-CSV.csv", sep=",",header=TRUE, na.strings = "")
+Bybell.Template.CSV<-read.csv("~/PaleoDatabase/R work/Bybell_3000.csv", sep=",",header=TRUE, na.strings = "")
 ```
 
 ### Spreadsheet Formatting
@@ -24,17 +24,13 @@ SESAR.Template.CSV <- SESAR.Template.CSV[-c(1),]
 
 #### Merging Spreadsheets
 ```{r}
-SESAR.V1 <- merge(SESAR.Template.CSV, Bybell.Template.CSV, by.x=c("Field.name..informal.classification.","Geological.age","Geological.unit","Comment","Latitude","Longitude","Locality","Locality.description","Country","State.Province","County","City.Township","Collector.Chief.Scientist"), by.y=c("Fossil..Group","Period.Epoch.from","Formation","Paleontological.remarks","Latitude....all.N","Longitude...W..unless.marked","Locality.Name","Locality.Remarks","Country.Ocean","State","County","Quadrangle","Collected.Submitted.by"), all=TRUE)
+SESAR.V1 <- merge(SESAR.Template.CSV, Bybell.Template.CSV, by.x=c("Sample.Name","Geological.age","Geological.unit","Comment","Latitude","Longitude","Locality","Location.description","Country","State.Province","County","City.Township","Collector.Chief.Scientist"), by.y=c("USGS..","Period.Epoch.from","Formation","Paleontological.remarks","Latitude....all.N","Longitude...W..unless.marked","Locality.Name","Locality.Remarks","Country.Ocean","Country.Ocean.subunit","County","Quadrangle","Collected.Submitted.by"), all=TRUE)
 ```
+
 
 #### Removing Unwanted Columns
 ```{r}
 SESAR.V1[56:107] <- list(NULL)
-```
-
-#### Saving CSV file
-```{r}
-write.csv(SESAR.V1, file = "Test-Bybellv6.csv")
 ```
 
 #### Apply data to Individual Columns
@@ -42,7 +38,8 @@ write.csv(SESAR.V1, file = "Test-Bybellv6.csv")
 SESAR.V1$Material <- "Biology"
 SESAR.V1$Age.unit..e.g..million.years..Ma.. <- "Ma"
 SESAR.V1$Current.archive.contact <- "Laurel Bybell - LBybell@usgs.gov"
-SESAR.V1$Current.archive <- "United States Geological Survey - Reston nannofossil lab "
+SESAR.V1$Current.archive <- "United States Geological Survey - Reston nannofossil lab"
+SESAR.V1$Field.name..informal.classification. <- "Microfossils"
 ```
 
 #### Fixing locality Information
