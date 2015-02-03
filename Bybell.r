@@ -13,7 +13,7 @@ SESAR.Template.CSV <-read.csv("~/PaleoDatabase/R work/SESAR Template -CSV.csv", 
 ```
 
 ```{r}
-Bybell.Template.CSV<-read.csv("~/PaleoDatabase/R work/Bybell_3000.csv", sep=",",header=TRUE, na.strings = "")
+Bybell.Template.CSV<-read.csv("~/PaleoDatabase/R work/Bybell_Data.csv", sep=",",header=TRUE, na.strings = "")
 ```
 
 ### Spreadsheet Formatting
